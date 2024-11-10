@@ -20,11 +20,9 @@ public class ChainedHashTable<K,V> implements HashTable<K,V> {
    * Our hash table is stored as an array of ArrayLists of key/value pairs.
    * Because of the design of Java arrays, we declare that as type Object[]
    * rather than ArrayList<KVPair<K,V>>[] and cast whenever we extract an an
-   * element. (SamR needs to find a better way to deal with this issue; using
-   * ArrayLists doesn't seem like the best idea.)
+   * element.
    * 
-   * We use chaining to handle collisions. (Well, we *will* use chaining once
-   * the table is finished.)
+   * We use chaining to handle collisions.
    * 
    * We expand the hash table when the load factor is greater than LOAD_FACTOR
    * (see constants below).
@@ -32,30 +30,11 @@ public class ChainedHashTable<K,V> implements HashTable<K,V> {
    * Since some combinations of data and hash function may lead to a situation
    * in which we get a surprising relationship between values (e.g., all the
    * hash values are 0 mod 32), when expanding the hash table, we incorporate a
-   * random number. (Is this likely to make a big difference? Who knows. But
-   * it's likely to be fun to explore.)
+   * random number.
    * 
    * For experimentation and such, we allow the client to supply a Reporter that
    * is used to report behind-the-scenes work, such as calls to expand the
    * table.
-   * 
-   * Bugs to squash.
-   * 
-   * [ ] Doesn't check for repeated keys in `set`.
-   * 
-   * [ ] Doesn't look for matching key in `get`.
-   * 
-   * [ ] Doesn't handle collisions.
-   * 
-   * Other features to add.
-   * 
-   * [ ] The `expand` method is not completely implemented.
-   * 
-   * [ ] The `remove` method is not implemented.
-   * 
-   * [ ] The `containsKey` method is not implemented.
-   * 
-   * [ ] An iterator.
    */
 
   // +-----------+-------------------------------------------------------
